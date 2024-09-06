@@ -6,12 +6,12 @@ from numpy.ma.core import floor
 from auth import auth_user
 import config
 import read_data_xlsx
-from config import num_threads
-from utils.read_data_xlsx import number_of_devices
+from config import Config as config
+from utils.read_data_xlsx import ReadDataXlsx
 
-dataframe = read_data_xlsx.dataframe
+dataframe = ReadDataXlsx.dataframe
 
-num_device = read_data_xlsx.number_of_devices
+num_device = ReadDataXlsx.number_of_devices
 
 # read row in dataframe
 def create_device(startIndex, stopIndex):
@@ -55,7 +55,7 @@ def main():
     threads = []
     for i in range(0, config.num_threads):
         thread = threading.Thread(target=create_device, args=(
-        int(floor(i * number_of_devices / num_threads)), int(floor((i + 1) * number_of_devices / num_threads - 1))))
+        int(floor(i * num_device / config.num_threads)), int(floor((i + 1) * num_device / config.num_threads - 1))))
         thread.start()
         threads.append(thread)
 

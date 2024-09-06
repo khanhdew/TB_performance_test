@@ -1,4 +1,4 @@
-import config
+from config import Config as config
 import requests
 
 def get_auth_token():
