@@ -24,10 +24,11 @@ def websocket_handler(thread_id, start_index, stop_index):
                                   "token": auth_token},
                       "cmds": [{"entityType": "DEVICE", "entityId": devices_id[i],
                                 "scope": "LATEST_TELEMETRY", "cmdId": thread_id, "type": "TIMESERIES"}]}
+            time.sleep(0.1)
             websocket.send(json.dumps(object))
             num += 1
             print(f"Thread {thread_id} connected to device {devices_id[i]}, devices connected {num}\n")
-            time.sleep(0.5)
+
         except Exception as e:
             print(f"With id: {i}")
             print(f"Thread {thread_id} failed to connect to device {devices_id[i]}: {e}")
@@ -44,7 +45,7 @@ def websocket_handler(thread_id, start_index, stop_index):
                     print(f"Total messages received: {total_messages}\n")
             except Exception as e:
                 print(f"Thread {thread_id} encountered an error with device {device_id}: {e}")
-                time.sleep(5)  # Wait before attempting to reconnect
+                time.sleep(0.5)  # Wait before attempting to reconnect
 
 
 threads = []

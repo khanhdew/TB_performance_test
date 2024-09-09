@@ -17,6 +17,7 @@ def send_telemetry(thread_id, start_index, stop_index):
     while True:
         for i in range(int(start_index), int(stop_index)):
             device_id = devices_id[i]
+            time.sleep(0.05)
             url = config.tb_url + f"api/v1/{dataframe.iloc[i]['Địa chỉ MAC']}/telemetry"
             headers = {
                 "Content-Type": "application/json",
@@ -30,8 +31,6 @@ def send_telemetry(thread_id, start_index, stop_index):
                 # print(f"Thread {thread_id} sent telemetry to device {device_id}")
                 total_messages += 1
                 print(f"Total messages sent: {total_messages}\n")
-            time.sleep(0.5)
-        time.sleep(1)
 
 
 threads = []
