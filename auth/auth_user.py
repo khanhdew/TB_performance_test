@@ -12,7 +12,6 @@ def get_auth_token():
     return auth_token
 
 auth_token = get_auth_token()
-print(auth_token)
 auth_header = {"X-Authorization": "Bearer " + auth_token}
 
 def refresh_token():

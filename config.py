@@ -1,7 +1,7 @@
 class Config:
     tb_url = "http://210.211.96.129:8088/"
-    tb_username = "smarthome@rangdong.com.vn"
-    tb_password = "Admin@123"
+    tb_username = "khanh@rangdong.com.vn"
+    tb_password = "123456a@"
     tb_host = "210.211.96.129"
     tb_port = 8088
 

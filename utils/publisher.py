@@ -6,7 +6,7 @@ from paho.mqtt import client as mqtt_client
 import threading
 
 from config import Config as config
-from get_device_id import DeviceList
+from get_devices import DeviceList
 from read_data_xlsx import ReadDataXlsx
 dataframe = ReadDataXlsx().dataframe
 
